@@ -12,8 +12,8 @@ files = [
   'lib/angular-1.0.4/angular.js',
   'lib/angular-1.0.4/angular-mocks.js',
   'src/angular-embedplayer.js',
-  'src/*/*/*.js',
-  'test/modules/*/*/*Test.js'
+  'src/*/*.js',
+  'test/modules/*/*Test.js'
 ];
 
 // list of files to exclude
