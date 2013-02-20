@@ -1,4 +1,4 @@
-# angularJS-videoplayer
+# ng-videosharing-embed
 
 Embed videos using AngularJS directives
 
@@ -33,6 +33,8 @@ Example
 ```
 
 Options are configured for each player, and allowed options are filtered using a whitelist.
+
+Note: camelCase options must be changed to dash-format
 
 ## Future improvements
 
