@@ -1,13 +1,14 @@
 /**
  * Embed videos using AngularJS directives
- * @version v0.1.1 - 2013-02-21
+ * @version v0.1.2 - 2013-02-22
  * @link 
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 
-angular.module('embedplayer', []);
+angular.module('videosharing-embed', []);
 
-angular.module('embedplayer').service('PlayerConfig', function () {
+angular.module('videosharing-embed').service('PlayerConfig', function () {
+	'use strict';
     this.createInstance = function (init) {
         var PlayerConfig = function (init) {
             this.playerRegExp = init.playerRegExp;
@@ -26,7 +27,8 @@ angular.module('embedplayer').service('PlayerConfig', function () {
     }
 });
 
-angular.module('embedplayer').factory('RegisteredPlayers', function (PlayerConfig) {
+angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfig', function (PlayerConfig) {
+	'use strict';
     var configurations = {
         youtube: {
             options: {
@@ -62,8 +64,9 @@ angular.module('embedplayer').factory('RegisteredPlayers', function (PlayerConfi
         players.push(PlayerConfig.createInstance(value));
     });
     return players;
-});
-angular.module('embedplayer').directive('embedVideo', function ($filter, RegisteredPlayers) {
+}]);
+angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', function ($filter, RegisteredPlayers) {
+	'use strict';
     return {
         restrict: "A",
         template: '<iframe width="{{config.width}}" height="{{config.height}}" src="{{config.playerID}}{{videoID}}{{config.options | videoOptions}}" frameborder="0"></iframe>',
@@ -95,8 +98,9 @@ angular.module('embedplayer').directive('embedVideo', function ($filter, Registe
             });
         }
     }
-});
-angular.module('embedplayer').filter('videoOptions', function () {
+}]);
+angular.module('videosharing-embed').filter('videoOptions', function () {
+	'use strict';
     return function (options) {
         var opts = [];
         angular.forEach(options, function (value, key) {
@@ -105,7 +109,8 @@ angular.module('embedplayer').filter('videoOptions', function () {
         return "?" + opts.join('&');
     }
 });
-angular.module('embedplayer').filter('whitelist', function () {
+angular.module('videosharing-embed').filter('whitelist', function () {
+	'use strict';
     return function (options, whitelist) {
         var filteredOptions = {};
         angular.forEach(options, function (value, key) {
