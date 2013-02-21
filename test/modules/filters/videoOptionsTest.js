@@ -1,5 +1,5 @@
 describe('filter', function() {
-	beforeEach(module('embedplayer'));
+	beforeEach(module('videosharing-embed'));
 	
 	describe('videoOptions', function() {
 		it('should created a string of HTTP GET parameters', inject(function (videoOptionsFilter) {

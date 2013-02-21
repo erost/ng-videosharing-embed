@@ -1,5 +1,5 @@
 describe('embedVideo', function() {
-	beforeEach(module('embedplayer'));
+	beforeEach(module('videosharing-embed'));
 	var scope;
 	beforeEach(inject(function ($rootScope) {
 		scope = $rootScope.$new();

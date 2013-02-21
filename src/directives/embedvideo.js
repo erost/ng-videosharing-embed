@@ -1,4 +1,5 @@
-angular.module('embedplayer').directive('embedVideo', function ($filter, RegisteredPlayers) {
+angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', function ($filter, RegisteredPlayers) {
+	'use strict';
     return {
         restrict: "A",
         template: '<iframe width="{{config.width}}" height="{{config.height}}" src="{{config.playerID}}{{videoID}}{{config.options | videoOptions}}" frameborder="0"></iframe>',
@@ -30,4 +31,4 @@ angular.module('embedplayer').directive('embedVideo', function ($filter, Registe
             });
         }
     }
-});
+}]);

@@ -1,6 +1,7 @@
-angular.module('embedplayer', []);
+angular.module('videosharing-embed', []);
 
-angular.module('embedplayer').service('PlayerConfig', function () {
+angular.module('videosharing-embed').service('PlayerConfig', function () {
+	'use strict';
     this.createInstance = function (init) {
         var PlayerConfig = function (init) {
             this.playerRegExp = init.playerRegExp;
@@ -19,7 +20,8 @@ angular.module('embedplayer').service('PlayerConfig', function () {
     }
 });
 
-angular.module('embedplayer').factory('RegisteredPlayers', function (PlayerConfig) {
+angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfig', function (PlayerConfig) {
+	'use strict';
     var configurations = {
         youtube: {
             options: {
@@ -55,4 +57,4 @@ angular.module('embedplayer').factory('RegisteredPlayers', function (PlayerConfi
         players.push(PlayerConfig.createInstance(value));
     });
     return players;
-});
+}]);

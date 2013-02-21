@@ -1,4 +1,5 @@
-angular.module('embedplayer').filter('whitelist', function () {
+angular.module('videosharing-embed').filter('whitelist', function () {
+	'use strict';
     return function (options, whitelist) {
         var filteredOptions = {};
         angular.forEach(options, function (value, key) {

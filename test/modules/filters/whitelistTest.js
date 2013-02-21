@@ -1,5 +1,5 @@
 describe('filter', function() {
-	beforeEach(module('embedplayer'));
+	beforeEach(module('videosharing-embed'));
 	
 	describe('whitelist', function() {
 		it('should return a map with only the allowed parameters', inject(function (whitelistFilter) {
