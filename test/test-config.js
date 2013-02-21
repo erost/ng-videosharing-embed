@@ -51,7 +51,4 @@ autoWatchInterval = 0;
 // - Opera
 // - Safari
 // - PhantomJS
-browsers = ['Chrome'];
-
-// Auto run tests on start (when browsers are captured) and exit
-singleRun = true;
+browsers = [];
