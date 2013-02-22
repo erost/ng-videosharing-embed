@@ -40,4 +40,4 @@ Note: camelCase options must be changed to dash-format
 ## Future improvements
 
 * Add more players
-* Add support for <object> embedding
+* Add support for &lt;object&gt; embedding
