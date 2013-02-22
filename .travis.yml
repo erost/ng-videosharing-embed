@@ -8,3 +8,10 @@
   - npm install -g grunt@0.3.x testacular@0.4.x
 
  script: "grunt"
+ 
+ notifications:
+  email:
+    recipients:
+      - erost@erost.net
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
