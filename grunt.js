@@ -68,13 +68,10 @@ module.exports = function (grunt) {
   
   grunt.registerTask('test', 'run tests (make sure server task is run first)', function () {
     var done = this.async();
-    grunt.util.spawn({
+    grunt.utils.spawn({
       cmd: process.platform === 'win32' ? 'testacular.cmd' : 'testacular',
       args: process.env.TRAVIS ? ['start', 'test/test-config.js', '--single-run', '--no-auto-watch', '--reporters=dots', '--browsers=Firefox'] : ['run']
     }, function (error, result, code) {
-    	grunt.log.writeln('msg: ' + error.message);
-    	grunt.log.writeln('msg: ' + error.stdouot);
-    	grunt.log.writeln('msg: ' + error.stderr);
       if (error) {
         grunt.warn("Make sure the testacular server is online: run `grunt server`.\n" +
           "Also make sure you have a browser open to http://localhost:8080/.\n" +
