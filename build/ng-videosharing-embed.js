@@ -1,6 +1,6 @@
 /**
  * Embed videos using AngularJS directives
- * @version v0.1.2 - 2013-02-22
+ * @version v0.1.3 - 2013-02-22
  * @link 
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -37,8 +37,9 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 loop: 0,
             },
             whitelist: ['autoplay', 'controls', 'loop', 'playlist'],
-            playerID: 'http://www.youtube.com/embed/',
-            playerRegExp: /http:\/\/www\.youtube\.com\/watch\?v=([A-Za-z0-9\-\_]+)/
+            playerID: 'www.youtube.com/embed/',
+            protocol: 'http://',
+            playerRegExp: /(http:\/\/|https:\/\/)www\.youtube\.com\/watch\?v=([A-Za-z0-9\-\_]+)/
         },
         vimeo: {
             options: {
@@ -46,8 +47,9 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 loop: 0,
             },
             whitelist: ['autoplay', 'color', 'loop'],
-            playerID: 'http://player.vimeo.com/video/',
-            playerRegExp: /http:\/\/vimeo\.com\/([A-Za-z0-9]+)/
+            playerID: 'player.vimeo.com/video/',
+            protocol: 'http://',
+            playerRegExp: /(http:\/\/)vimeo\.com\/([A-Za-z0-9]+)/
         },
         dailymotion: {
             options: {
@@ -55,8 +57,9 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 logo: 0,
             },
             whitelist: ['autoPlay', 'logo', 'forceQuality'],
-            playerID: 'http://www.dailymotion.com/embed/video/',
-            playerRegExp: /http:\/\/www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/
+            playerID: 'www.dailymotion.com/embed/video/',
+            protocol: 'http://',
+            playerRegExp: /(http:\/\/)www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/
         }
     };
     var players = [];
@@ -69,7 +72,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 	'use strict';
     return {
         restrict: "A",
-        template: '<iframe width="{{config.width}}" height="{{config.height}}" src="{{config.playerID}}{{videoID}}{{config.options | videoOptions}}" frameborder="0"></iframe>',
+        template: '<iframe width="{{config.width}}" height="{{config.height}}" src="{{config.protocol}}{{config.playerID}}{{videoID}}{{config.options | videoOptions}}" frameborder="0"></iframe>',
         scope : {},
 		replace : true,
         link: function ($scope, element, attrs) {
@@ -83,7 +86,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 }
             });
             //get the videoID
-            $scope.videoID = url.match(player.playerRegExp)[1];
+            $scope.videoID = url.match(player.playerRegExp)[2];
 
             //copy configuration from player
             $scope.config = player.config;
@@ -91,6 +94,9 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
             //the size of the player is treated differently than to the playback options
             $scope.config.height = (attrs.height && parseInt(attrs.height)) || $scope.config.height;
             $scope.config.width = (attrs.width && parseInt(attrs.width)) || $scope.config.width;
+            
+            //get the protocol
+            $scope.config.protocol = url.match(player.playerRegExp)[1];
 
             //overwrite playback options
             angular.forEach($filter('whitelist')(attrs, player.whitelist), function (value, key) {
