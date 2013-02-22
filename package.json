@@ -9,7 +9,7 @@
   "dependencies": {
   },
   "devDependencies": {
-  	"grunt": ">= 0.3.17",
+  	"grunt": "0.3.17",
   	"testacular": ">= 0.4.0"
   },
   "repository": {
