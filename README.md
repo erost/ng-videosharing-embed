@@ -2,6 +2,7 @@
 
 Embed videos using AngularJS directives
 
+[![Build Status](https://travis-ci.org/erost/ng-videosharing-embed.png?branch=master)](https://travis-ci.org/erost/ng-videosharing-embed)
 ***
 
 ## Purpose
