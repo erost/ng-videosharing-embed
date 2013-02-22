@@ -2,7 +2,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 	'use strict';
     return {
         restrict: "A",
-        template: '<iframe width="{{config.width}}" height="{{config.height}}" src="{{config.playerID}}{{videoID}}{{config.options | videoOptions}}" frameborder="0"></iframe>',
+        template: '<iframe width="{{config.width}}" height="{{config.height}}" src="{{config.protocol}}{{config.playerID}}{{videoID}}{{config.options | videoOptions}}" frameborder="0"></iframe>',
         scope : {},
 		replace : true,
         link: function ($scope, element, attrs) {
@@ -16,7 +16,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 }
             });
             //get the videoID
-            $scope.videoID = url.match(player.playerRegExp)[1];
+            $scope.videoID = url.match(player.playerRegExp)[2];
 
             //copy configuration from player
             $scope.config = player.config;
@@ -24,6 +24,9 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
             //the size of the player is treated differently than to the playback options
             $scope.config.height = (attrs.height && parseInt(attrs.height)) || $scope.config.height;
             $scope.config.width = (attrs.width && parseInt(attrs.width)) || $scope.config.width;
+            
+            //get the protocol
+            $scope.config.protocol = url.match(player.playerRegExp)[1];
 
             //overwrite playback options
             angular.forEach($filter('whitelist')(attrs, player.whitelist), function (value, key) {

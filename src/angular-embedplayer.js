@@ -30,8 +30,9 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 loop: 0,
             },
             whitelist: ['autoplay', 'controls', 'loop', 'playlist'],
-            playerID: 'http://www.youtube.com/embed/',
-            playerRegExp: /http:\/\/www\.youtube\.com\/watch\?v=([A-Za-z0-9\-\_]+)/
+            playerID: 'www.youtube.com/embed/',
+            protocol: 'http://',
+            playerRegExp: /(http:\/\/|https:\/\/)www\.youtube\.com\/watch\?v=([A-Za-z0-9\-\_]+)/
         },
         vimeo: {
             options: {
@@ -39,8 +40,9 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 loop: 0,
             },
             whitelist: ['autoplay', 'color', 'loop'],
-            playerID: 'http://player.vimeo.com/video/',
-            playerRegExp: /http:\/\/vimeo\.com\/([A-Za-z0-9]+)/
+            playerID: 'player.vimeo.com/video/',
+            protocol: 'http://',
+            playerRegExp: /(http:\/\/)vimeo\.com\/([A-Za-z0-9]+)/
         },
         dailymotion: {
             options: {
@@ -48,8 +50,9 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 logo: 0,
             },
             whitelist: ['autoPlay', 'logo', 'forceQuality'],
-            playerID: 'http://www.dailymotion.com/embed/video/',
-            playerRegExp: /http:\/\/www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/
+            playerID: 'www.dailymotion.com/embed/video/',
+            protocol: 'http://',
+            playerRegExp: /(http:\/\/)www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/
         }
     };
     var players = [];
