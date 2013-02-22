@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ng-videosharing-embed by erost</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>ng-videosharing-embed</h1>
+        <p>embed youtube/vimeo/dailymotion videos using AngularJS directives</p>
+
+        <p class="view"><a href="https://github.com/erost/ng-videosharing-embed">View the Project on GitHub <small>erost/ng-videosharing-embed</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/erost/ng-videosharing-embed/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/erost/ng-videosharing-embed/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/erost/ng-videosharing-embed">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>ng-videosharing-embed</h1>
+
+<p>Embed videos using AngularJS directives</p>
+
+<hr><h2>Purpose</h2>
+
+<p>A small project I've started while learning angularJS. It has no real purpose other than educational.</p>
+
+<h2>Usage</h2>
+
+<h3>Requirements</h3>
+
+<ul>
+<li>
+<strong>AngularJS v1.0.0+</strong> is currently required.</li>
+</ul><h3>Supported Video Sources</h3>
+
+<ul>
+<li>
+<strong>Youtube</strong> (iframe)</li>
+<li>
+<strong>Dailymotion</strong> (iframe)</li>
+<li>
+<strong>Vimeo</strong> (iframe)</li>
+</ul><h3>Test</h3>
+
+<p>Generic</p>
+
+<div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"&lt;videoUrl&gt;"</span> <span class="na">embev-video</span> <span class="na">width=</span><span class="s">xxx</span> <span class="na">height=</span><span class="s">xxx</span> <span class="err">[</span><span class="na">options</span><span class="err">]</span><span class="nt">&gt;&lt;/a&gt;</span>
+</pre></div>
+
+<p>Example</p>
+
+<div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.youtube.com/watch?v=LOKyEt36Kjc"</span> <span class="na">embed-video</span> <span class="na">controls=</span><span class="s">0</span><span class="nt">&gt;&lt;/a&gt;</span>
+</pre></div>
+
+<p>Options are configured for each player, and allowed options are filtered using a whitelist.</p>
+
+<p>Note: camelCase options must be changed to dash-format</p>
+
+<h2>Future improvements</h2>
+
+<ul>
+<li>Add more players</li>
+<li>Add support for  embedding</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/erost">erost</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
