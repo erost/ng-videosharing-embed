@@ -38,6 +38,24 @@ describe('embedVideo', function() {
 		}))
 	})
 	
+	describe('embed https youtube', function() {
+		it('should embed a youtube video using https protocol', inject(function () {
+			inject(function ($compile) {
+				var element;
+				element = $compile('<a href="https://www.youtube.com/watch?v=LOKyEt36Kjc" embed-video controls=0 >Watch</a>')(scope);
+				scope.$apply();
+				var elementData = getURLandOptions(element.attr('src'));
+				expect(elementData.url).toEqual('https://www.youtube.com/embed/LOKyEt36Kjc');
+				expect(Object.keys(elementData.options).length).toEqual(3);
+				expect(elementData.options.loop).toEqual('0');
+				expect(elementData.options.controls).toEqual('0');
+				expect(elementData.options.autoplay).toEqual('0');
+				expect(element.attr('width')).toEqual('560');
+				expect(element.attr('height')).toEqual('315');
+			});
+		}))
+	})
+	
 	describe('embed dailymotion', function() {
 		it('should embed a dailymotion video', inject(function () {
 			inject(function ($compile) {
