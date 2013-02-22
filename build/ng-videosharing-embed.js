@@ -1,6 +1,6 @@
 /**
  * Embed videos using AngularJS directives
- * @version v0.1.3 - 2013-02-22
+ * @version v0.1.4 - 2013-02-22
  * @link 
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -36,10 +36,21 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 controls: 1,
                 loop: 0,
             },
-            whitelist: ['autoplay', 'controls', 'loop', 'playlist'],
+            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel'],
             playerID: 'www.youtube.com/embed/',
             protocol: 'http://',
             playerRegExp: /(http:\/\/|https:\/\/)www\.youtube\.com\/watch\?v=([A-Za-z0-9\-\_]+)/
+        },
+        youtubeNoCookie: {
+            options: {
+                autoplay: 0,
+                controls: 1,
+                loop: 0,
+            },
+            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel'],
+            playerID: 'www.youtube-nocookie.com/embed/',
+            protocol: 'http://',
+            playerRegExp: /(http:\/\/|https:\/\/)www\.youtube\-nocookie\.com\/watch\?v=([A-Za-z0-9\-\_]+)/
         },
         vimeo: {
             options: {
