@@ -36,8 +36,3 @@ Example
 Options are configured for each player, and allowed options are filtered using a whitelist.
 
 Note: camelCase options must be changed to dash-format
-
-## Future improvements
-
-* Add more players
-* Add support for &lt;object&gt; embedding
