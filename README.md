@@ -25,7 +25,7 @@ A small project I've started while learning angularJS. It has no real purpose ot
 
 Generic
 ```html
-<a href="<videoUrl>" embev-video width=xxx height=xxx [options]></a>
+<a href="<videoUrl>" embed-video width=xxx height=xxx [options]></a>
 ```
 
 Example
