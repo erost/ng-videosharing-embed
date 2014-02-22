@@ -2,11 +2,13 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 	'use strict';
     return {
         restrict: "A",
-        template: '<iframe width="{{config.width}}" height="{{config.height}}" src="{{config.protocol}}{{config.playerID}}{{videoID}}{{config.options | videoOptions}}" frameborder="0"></iframe>',
-        scope : {},
+        template: '<iframe width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" frameborder="0"></iframe>',
+        scope : {
+			url: '@href'
+			},
 		replace : true,
         link: function ($scope, element, attrs) {
-            var url = attrs.href;
+            var url = $scope.url;
             var player = null;
             
             //search for the right player in the list of registered players
@@ -16,22 +18,26 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 }
             });
             //get the videoID
-            $scope.videoID = url.match(player.playerRegExp)[2];
+            var videoID = url.match(player.playerRegExp)[2];
 
             //copy configuration from player
-            $scope.config = player.config;
+            var config = player.config;
             
             //the size of the player is treated differently than to the playback options
-            $scope.config.height = (attrs.height && parseInt(attrs.height)) || $scope.config.height;
-            $scope.config.width = (attrs.width && parseInt(attrs.width)) || $scope.config.width;
+            $scope.height = (attrs.height && parseInt(attrs.height)) || config.height;
+            $scope.width = (attrs.width && parseInt(attrs.width)) || config.width;
             
             //get the protocol
-            $scope.config.protocol = url.match(player.playerRegExp)[1];
+            var protocol = url.match(player.playerRegExp)[1];
 
             //overwrite playback options
             angular.forEach($filter('whitelist')(attrs, player.whitelist), function (value, key) {
-                $scope.config.options[key] = value;
+                config.options[key] = value;
             });
+			
+			//build and trust the video URL
+			var untrustedVideoSrc = protocol + config.playerID + videoID + $filter('videoOptions')(config.options);
+			$scope.trustedVideoSrc = $sce.trustAsResourceUrl(untrustedVideoSrc);
         }
     }
 }]);
