@@ -2,7 +2,7 @@
   "author": "erost",
   "name": "ng-videosharing-embed",
   "description": "Embed videos using AngularJS directives",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/erost/ng-videosharing-embed",
   "repository": {
     "type": "git",
@@ -10,6 +10,6 @@
   },
   "main": "./build/angular-ui.min.js",
   "dependencies": {
-    "angular": ">= 1.0.3"
+    "angular": ">= 1.2.0"
   }
 }
