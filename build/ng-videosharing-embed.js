@@ -1,6 +1,6 @@
 /**
  * Embed videos using AngularJS directives
- * @version v0.1.5 - 2014-02-22
+ * @version v0.1.6 - 2014-02-22
  * @link 
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -79,7 +79,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
     });
     return players;
 }]);
-angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', function ($filter, RegisteredPlayers) {
+angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', '$sce', function ($filter, RegisteredPlayers, $sce) {
 	'use strict';
     return {
         restrict: "A",

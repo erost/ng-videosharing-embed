@@ -1,4 +1,4 @@
-angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', function ($filter, RegisteredPlayers) {
+angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', '$sce', function ($filter, RegisteredPlayers, $sce) {
 	'use strict';
     return {
         restrict: "A",
