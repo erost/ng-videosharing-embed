@@ -1,6 +1,6 @@
 /**
  * Embed videos using AngularJS directives
- * @version v0.1.6 - 2014-02-22
+ * @version v0.1.7 - 2014-02-22
  * @link 
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -14,8 +14,6 @@ angular.module('videosharing-embed').service('PlayerConfig', function () {
             this.playerRegExp = init.playerRegExp;
             this.whitelist = init.whitelist;
             this.config = {
-                width: 560,
-                height: 315,
                 playerID: init.playerID,
                 options: init.options
             };
@@ -83,42 +81,40 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 	'use strict';
     return {
         restrict: "A",
-        template: '<iframe width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" frameborder="0"></iframe>',
-        scope : {
-			url: '@href'
-			},
+        template: '<iframe data-ng-src="{{trustedVideoSrc}}" frameborder="0"></iframe>',
+        scope : {},
 		replace : true,
-        link: function ($scope, element, attrs) {
-            var url = $scope.url;
-            var player = null;
+        link: function ($scope, $element, $attrs) {
+            //handle the use of both ng-href and href
+            $attrs.$observe('href', function(url) {
+				if(url === undefined)
+					return;
+				var player = null;
             
-            //search for the right player in the list of registered players
-            angular.forEach(RegisteredPlayers, function (value) {
-                if (value.isPlayerFromURL(url)) {
-                    player = value;
-                }
-            });
-            //get the videoID
-            var videoID = url.match(player.playerRegExp)[2];
+				//search for the right player in the list of registered players
+				angular.forEach(RegisteredPlayers, function (value) {
+					if (value.isPlayerFromURL(url)) {
+						player = value;
+					}
+				});
+				//get the videoID
+				var videoID = url.match(player.playerRegExp)[2];
 
-            //copy configuration from player
-            var config = player.config;
+				//copy configuration from player
+				var config = player.config;
             
-            //the size of the player is treated differently than to the playback options
-            $scope.height = (attrs.height && parseInt(attrs.height)) || config.height;
-            $scope.width = (attrs.width && parseInt(attrs.width)) || config.width;
-            
-            //get the protocol
-            var protocol = url.match(player.playerRegExp)[1];
+				//get the protocol
+				var protocol = url.match(player.playerRegExp)[1];
 
-            //overwrite playback options
-            angular.forEach($filter('whitelist')(attrs, player.whitelist), function (value, key) {
-                config.options[key] = value;
-            });
+				//overwrite playback options
+				angular.forEach($filter('whitelist')($attrs, player.whitelist), function (value, key) {
+					config.options[key] = value;
+				});
 			
-			//build and trust the video URL
-			var untrustedVideoSrc = protocol + config.playerID + videoID + $filter('videoOptions')(config.options);
-			$scope.trustedVideoSrc = $sce.trustAsResourceUrl(untrustedVideoSrc);
+				//build and trust the video URL
+				var untrustedVideoSrc = protocol + config.playerID + videoID + $filter('videoOptions')(config.options);
+				$scope.trustedVideoSrc = $sce.trustAsResourceUrl(untrustedVideoSrc);
+			});
         }
     }
 }]);
