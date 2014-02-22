@@ -13,11 +13,12 @@ A small project I've started while learning angularJS. It has no real purpose ot
 
 ### Requirements
 
-* **AngularJS v1.0.0+** is currently required.
+* **AngularJS v1.0.0+** is supported
 
 ### Supported Video Sources
 
 * **Youtube** (iframe)
+* **Youtube no cookies** (iframe)
 * **Dailymotion** (iframe)
 * **Vimeo** (iframe)
 
@@ -33,6 +34,5 @@ Example
 <a href="http://www.youtube.com/watch?v=LOKyEt36Kjc" embed-video controls=0></a>
 ```
 
-Options are configured for each player, and allowed options are filtered using a whitelist.
-
-Note: camelCase options must be changed to dash-format
+Player's options are unique for each video source.
+For a list of available options, take a look at src/angular-embedplayer.js
