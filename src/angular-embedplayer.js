@@ -7,8 +7,6 @@ angular.module('videosharing-embed').service('PlayerConfig', function () {
             this.playerRegExp = init.playerRegExp;
             this.whitelist = init.whitelist;
             this.config = {
-                width: 560,
-                height: 315,
                 playerID: init.playerID,
                 options: init.options
             };
