@@ -18,6 +18,9 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 						player = value;
 					}
 				});
+				if(player === null)
+				    return; //haven't found a match for a valid registered player
+				
 				//get the videoID
 				var videoID = url.match(player.playerRegExp)[2];
 
