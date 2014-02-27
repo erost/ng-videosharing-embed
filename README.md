@@ -9,6 +9,8 @@ Embed videos using AngularJS directives
 
 A small project I've started while learning angularJS. It has no real purpose other than educational.
 
+[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/erost/)
+
 ## Usage
 
 ### Requirements
