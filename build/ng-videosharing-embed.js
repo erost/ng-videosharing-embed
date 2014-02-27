@@ -1,6 +1,6 @@
 /**
  * Embed videos using AngularJS directives
- * @version v0.1.7 - 2014-02-22
+ * @version v0.1.8 - 2014-02-27
  * @link 
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -37,7 +37,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel'],
             playerID: 'www.youtube.com/embed/',
             protocol: 'http://',
-            playerRegExp: /(http:\/\/|https:\/\/)www\.youtube\.com\/watch\?v=([A-Za-z0-9\-\_]+)/
+            playerRegExp: /(http:\/\/|https:\/\/)(www\.youtube\.com|youtu\.be)\/watch\?v=([A-Za-z0-9\-\_]+)/
         },
         youtubeNoCookie: {
             options: {
@@ -97,6 +97,9 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 						player = value;
 					}
 				});
+				if(player === null)
+				    return; //haven't found a match for a valid registered player
+				
 				//get the videoID
 				var videoID = url.match(player.playerRegExp)[2];
 
