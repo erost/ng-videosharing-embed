@@ -30,7 +30,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel'],
             playerID: 'www.youtube.com/embed/',
             protocol: 'http://',
-            playerRegExp: /(http:\/\/|https:\/\/)www\.youtube\.com\/watch\?v=([A-Za-z0-9\-\_]+)/
+            playerRegExp: /(http:\/\/|https:\/\/)(www\.youtube\.com|youtu\.be)\/watch\?v=([A-Za-z0-9\-\_]+)/
         },
         youtubeNoCookie: {
             options: {
