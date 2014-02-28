@@ -1,6 +1,6 @@
 /**
  * Embed videos using AngularJS directives
- * @version v0.1.8 - 2014-02-27
+ * @version v0.1.9 - 2014-02-28
  * @link 
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -81,9 +81,11 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 	'use strict';
     return {
         restrict: "A",
-        template: '<iframe data-ng-src="{{trustedVideoSrc}}" frameborder="0"></iframe>',
-        scope : {},
-		replace : true,
+        template: '<iframe width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" frameborder="0"></iframe>',
+        scope : {
+            height: '@height',
+            width: '@width'
+        },
         link: function ($scope, $element, $attrs) {
             //handle the use of both ng-href and href
             $attrs.$observe('href', function(url) {
