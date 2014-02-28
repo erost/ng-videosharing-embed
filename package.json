@@ -8,7 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt-cli": "~0.1.13",
+    "grunt-cli": "~0.4.2",
     "phantomjs": "~1.9",
     "karma": "~0.10",
     "karma-junit-reporter": "~0.1",
