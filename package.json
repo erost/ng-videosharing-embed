@@ -8,13 +8,14 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt": "0.3.17",
+    "grunt-cli": "~0.1.13",
     "phantomjs": "~1.9",
     "karma": "~0.10",
     "karma-junit-reporter": "~0.1",
     "karma-jasmine": "~0.1",
     "karma-commonjs": "0.0.6"
   },
+  "scripts": { "test": "grunt test" },
   "repository": {
     "type": "git",
     "url": "git://github.com/erost/ng-videosharing-embed.git"
