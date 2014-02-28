@@ -6,11 +6,14 @@
     "example": "examples",
     "test": "test"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-  	"grunt": "0.3.17",
-  	"testacular": ">= 0.4.0"
+    "grunt": "0.3.17",
+    "phantomjs": "~1.9",
+    "karma": "~0.10",
+    "karma-junit-reporter": "~0.1",
+    "karma-jasmine": "~0.1",
+    "karma-commonjs": "0.0.6"
   },
   "repository": {
     "type": "git",
