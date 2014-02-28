@@ -51,7 +51,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             whitelist: ['autoplay', 'color', 'loop'],
             playerID: 'player.vimeo.com/video/',
             protocol: 'http://',
-            playerRegExp: /(http:\/\/)(vimeo\.com)\/([A-Za-z0-9]+)/
+            playerRegExp: /(http:\/\/)vimeo\.com\/([A-Za-z0-9]+)/
         },
         dailymotion: {
             options: {
@@ -61,7 +61,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             whitelist: ['autoPlay', 'logo', 'forceQuality'],
             playerID: 'www.dailymotion.com/embed/video/',
             protocol: 'http://',
-            playerRegExp: /(http:\/\/)(www\.dailymotion\.com)\/video\/([A-Za-z0-9]+)/
+            playerRegExp: /(http:\/\/)www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/
         }
     };
     var players = [];
