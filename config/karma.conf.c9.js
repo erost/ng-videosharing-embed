@@ -10,8 +10,8 @@ module.exports = function(config) {
         'test/lib/angular.js',
         'test/lib/angular-mocks.js',
         'src/angular-embedplayer.js',
-        'src/*/*.js',
-        'test/modules/*/*Test.js'
+        'src/**/*.js',
+        'test/modules/**/*Test.js'
     ],
 
     // list of files to exclude
@@ -22,7 +22,7 @@ module.exports = function(config) {
     // use dots reporter, as travis terminal does not support escaping sequences
     // possible values: 'dots', 'progress'
     // CLI --reporters progress
-    reporters: ['dots', 'progress', 'junit'],
+    reporters: ['progress'],
 
     junitReporter: {
       // will be resolved to basePath (in the same way as files/exclude patterns)
@@ -45,7 +45,7 @@ module.exports = function(config) {
 
     // enable / disable watching file and executing tests whenever any file changes
     // CLI --auto-watch --no-auto-watch
-    autoWatch: true,
+    autoWatch: false,
 
     // Start these browsers, currently available:
     // - Chrome
@@ -56,7 +56,7 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     // CLI --browsers Chrome,Firefox,Safari
-    browsers: [process.env.TRAVIS ? 'Firefox' : 'PhantomJS'],
+    browsers: ['PhantomJS'],
 
     // If browser does not capture in given timeout [ms], kill it
     // CLI --capture-timeout 5000
@@ -64,11 +64,11 @@ module.exports = function(config) {
 
     // Auto run tests on start (when browsers are captured) and exit
     // CLI --single-run --no-single-run
-    singleRun: false,
+    singleRun: true,
 
     // report which specs are slower than 500ms
     // CLI --report-slower-than 500
-    reportSlowerThan: 500,
+    reportSlowerThan: 5000,
 
     plugins: [
       'karma-jasmine',

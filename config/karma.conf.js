@@ -10,8 +10,8 @@ module.exports = function(config) {
         'test/lib/angular.js',
         'test/lib/angular-mocks.js',
         'src/angular-embedplayer.js',
-        'src/*/*.js',
-        'test/modules/*/*Test.js'
+        'src/**/*.js',
+        'test/modules/**/*Test.js'
     ],
 
     // list of files to exclude
@@ -44,7 +44,7 @@ module.exports = function(config) {
 
     // enable / disable watching file and executing tests whenever any file changes
     // CLI --auto-watch --no-auto-watch
-    autoWatch: true,
+    autoWatch: false,
 
     // Start these browsers, currently available:
     // - Chrome
@@ -67,7 +67,7 @@ module.exports = function(config) {
 
     // report which specs are slower than 500ms
     // CLI --report-slower-than 500
-    reportSlowerThan: 500,
+    reportSlowerThan: 5000,
 
     plugins: [
       'karma-jasmine',
