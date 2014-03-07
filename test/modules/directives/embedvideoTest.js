@@ -76,6 +76,25 @@ describe('embedVideo', function() {
 			});
 		}))
 	})
+
+	describe('embed protocol agnostic youtube', function() {
+		it('should embed a youtube video using no protocol', inject(function () {
+			inject(function ($compile) {
+				var rootElement;
+				rootElement = $compile('<a ng-href="//www.youtube.com/watch?v=LOKyEt36Kjc" embed-video controls=0 >Watch</a>')(scope);
+				scope.$apply();
+				var element = rootElement[0].firstChild;
+				expect(element).toBeDefined();
+				expect(element.nodeName.toLowerCase()).toEqual('iframe');
+				var elementData = getURLandOptions(element.getAttribute('src'));
+				expect(elementData.url).toEqual('//www.youtube.com/embed/LOKyEt36Kjc');
+				expect(Object.keys(elementData.options).length).toEqual(3);
+				expect(elementData.options.loop).toEqual('0');
+				expect(elementData.options.controls).toEqual('0');
+				expect(elementData.options.autoplay).toEqual('0');
+			});
+		}))
+	})
 	
 	describe('embed dailymotion', function() {
 		it('should embed a dailymotion video', inject(function () {
