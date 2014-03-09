@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git://github.com/erost/ng-videosharing-embed.git"
   },
-  "main": "./build/angular-ui.min.js",
+  "main": "./build/ng-videosharing-embed.min.js",
   "dependencies": {
     "angular": ">= 1.2.0"
   }

@@ -30,7 +30,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 				var config = player.config;
             
 				//get the protocol
-				var protocol = url.match(player.playerRegExp)[1];
+				var protocol = url.match(player.playerRegExp)[1] || '';
 
 				//overwrite playback options
 				angular.forEach($filter('whitelist')($attrs, player.whitelist), function (value, key) {
@@ -38,7 +38,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 				});
 			
 				//build and trust the video URL
-				var untrustedVideoSrc = protocol + config.playerID + videoID + $filter('videoOptions')(config.options);
+				var untrustedVideoSrc = protocol + '//' + config.playerID + videoID + $filter('videoOptions')(config.options);
 				$scope.trustedVideoSrc = $sce.trustAsResourceUrl(untrustedVideoSrc);
 			});
         }
