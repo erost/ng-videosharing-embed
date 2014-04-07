@@ -13,7 +13,7 @@
     "grunt-contrib-uglify" : "~0.3.3",
     "grunt-contrib-jshint" : "~0.8.0",
     "phantomjs": "~1.9",
-    "karma": "~0.11.14",
+    "karma": "~0.12",
     "karma-junit-reporter": "~0.1",
     "karma-phantomjs-launcher" : "~0.1.2",
     "karma-jasmine": "~0.1",
