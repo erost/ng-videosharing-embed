@@ -111,8 +111,8 @@ describe('embedVideo', function() {
 				expect(elementData.options.forceQuality).toEqual('hq');
 				expect(elementData.options.logo).toEqual('0');
 				expect(elementData.options.autoPlay).toEqual('0');
-				expect(strip(element.getAttribute('width'))).toEqual('1280');
-				expect(strip(element.getAttribute('height'))).toEqual('720');
+				expect(element.getAttribute('width').trim()).toEqual('1280');
+				expect(element.getAttribute('height').trim()).toEqual('720');
 			});
 		}))
 	})
