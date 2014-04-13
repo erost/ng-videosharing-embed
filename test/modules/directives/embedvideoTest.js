@@ -24,13 +24,13 @@ describe('embedVideo', function() {
 		it('should embed a youtube video', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<a ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc-" embed-video controls=0 >Watch</a>')(scope);
+				rootElement = $compile('<a ng-href="http://www.youtube.com/watch?v=-LOKyEt36Kjc" embed-video controls=0 >Watch</a>')(scope);
 				scope.$apply();
 				var element = rootElement[0];
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('http://www.youtube.com/embed/LOKyEt36Kjc-');
+				expect(elementData.url).toEqual('http://www.youtube.com/embed/-LOKyEt36Kjc');
 				expect(Object.keys(elementData.options).length).toEqual(3);
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.controls).toEqual('0');
