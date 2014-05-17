@@ -4,11 +4,19 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
         restrict: "A",
         template: '<iframe width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" frameborder="0"></iframe>',
         replace: true,
-        scope : {
-            height: '@height',
-            width: '@width'
+        scope: {
+            height: '@',
+            width: '@'
         },
         link: function ($scope, $element, $attrs) {
+            $attrs.$observe('width', function(w) {
+              $scope.width = w;
+            });
+
+            $attrs.$observe('height', function(h) {
+              $scope.height = h;
+            });
+
             //handle the use of both ng-href and href
             $attrs.$observe('href', function(url) {
               if(url === undefined)
