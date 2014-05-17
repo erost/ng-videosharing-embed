@@ -8,8 +8,22 @@
     "type": "git",
     "url": "git://github.com/erost/ng-videosharing-embed.git"
   },
-  "main": "./build/ng-videosharing-embed.min.js",
+  "main": "build/ng-videosharing-embed.min.js",
   "dependencies": {
     "angular": ">= 1.2.0"
-  }
+  },
+  "ignore" : [
+      ".gitignore",
+      ".travis.yml",
+      "bower.json",
+      "Gruntfile.js",
+      "LICENSE",
+      "package.json",
+      "README.md",
+      "test",
+      "src",
+      "node_modules",
+      "examples",
+      "config",
+      ".git"]
 }
