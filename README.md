@@ -19,7 +19,7 @@ A small project I've started while learning angularJS. It has no real purpose ot
 
 Once installed, add videosharing-embed as a dependency in your module:
 
-    angular.module('myModule', ['videosharing-embed']);
+* `angular.module('myModule', ['videosharing-embed']);`
 
 ### Requirements
 
