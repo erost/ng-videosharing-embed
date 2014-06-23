@@ -8,28 +8,6 @@ module.exports = function(grunt) {
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
     datetime: Date.now(),
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        eqnull: true,
-        browser: true,
-        globals: {
-          jQuery: true,
-          $: true,
-          console: true
-        }
-      },
-      'myproject': {
-        src: [ 'src/**/*.js' ]
-      }
-    },
  
     concat: {
       'myproject': {
@@ -64,14 +42,12 @@ module.exports = function(grunt) {
     }
   });
  
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-karma');
  
   // Default task.
   grunt.registerTask('default', ['concat:myproject', 'uglify:myproject']);
-  grunt.registerTask('syntax-check', ['jshint:myproject']);
   grunt.registerTask('test', ['karma:unit']);
   grunt.registerTask('test-c9', ['karma:unitc9']);
 };
