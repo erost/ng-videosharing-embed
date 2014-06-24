@@ -17,6 +17,10 @@ A small project I've started while learning angularJS. It has no real purpose ot
 
 * `$ bower install ng-videosharing-embed`
 
+Once installed, add videosharing-embed as a dependency in your module:
+
+* `angular.module('myModule', ['videosharing-embed']);`
+
 ### Requirements
 
 * **AngularJS v1.0.0+** is supported
