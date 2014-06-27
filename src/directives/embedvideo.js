@@ -1,9 +1,8 @@
 angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', '$sce', function ($filter, RegisteredPlayers, $sce) {
 	'use strict';
     return {
-        restrict: "A",
+        restrict: "E",
         template: '<iframe width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" frameborder="0"></iframe>',
-        replace: true,
         scope: {
             height: '@',
             width: '@'

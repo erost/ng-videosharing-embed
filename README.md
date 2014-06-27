@@ -17,6 +17,10 @@ A small project I've started while learning angularJS. It has no real purpose ot
 
 * `$ bower install ng-videosharing-embed`
 
+Once installed, add videosharing-embed as a dependency in your module:
+
+* `angular.module('myModule', ['videosharing-embed']);`
+
 ### Requirements
 
 * **AngularJS v1.0.0+** is supported
@@ -32,12 +36,12 @@ A small project I've started while learning angularJS. It has no real purpose ot
 
 Generic
 ```html
-<a href="<videoUrl>" embed-video width=xxx height=xxx [options]></a>
+<embed-video href="<videoUrl>" width=xxx height=xxx [options]></embed-video>
 ```
 
 Example
 ```html
-<a href="http://www.youtube.com/watch?v=LOKyEt36Kjc" embed-video controls=0></a>
+<embed-video data-ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" controls=0><a href="http://www.youtube.com/watch?v=LOKyEt36Kjc">Watch</a></embed-video>
 ```
 
 Player's options are unique for each video source.

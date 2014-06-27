@@ -24,9 +24,9 @@ describe('embedVideo', function() {
 		it('should embed a youtube video', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<a ng-href="http://www.youtube.com/watch?v=-LOKyEt36Kjc" embed-video controls=0 >Watch</a>')(scope);
+				rootElement = $compile('<embed-video ng-href="http://www.youtube.com/watch?v=-LOKyEt36Kjc" controls=0 >Watch</embed-video>')(scope);
 				scope.$apply();
-				var element = rootElement[0];
+				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
@@ -43,9 +43,9 @@ describe('embedVideo', function() {
 		it('should embed a youtube video by short URL', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<a ng-href="http://youtu.be/LOKyEt36Kjc" embed-video controls=0 >Watch</a>')(scope);
+				rootElement = $compile('<embed-video ng-href="http://youtu.be/LOKyEt36Kjc" controls=0 >Watch</embed-video>')(scope);
 				scope.$apply();
-				var element = rootElement[0];
+				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
@@ -62,9 +62,9 @@ describe('embedVideo', function() {
 		it('should embed a youtube video using https protocol', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<a ng-href="https://www.youtube.com/watch?v=LOKyEt36Kjc" embed-video controls=0 >Watch</a>')(scope);
+				rootElement = $compile('<embed-video ng-href="https://www.youtube.com/watch?v=LOKyEt36Kjc" controls=0 >Watch</embed-video>')(scope);
 				scope.$apply();
-				var element = rootElement[0];
+				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
@@ -81,9 +81,9 @@ describe('embedVideo', function() {
 		it('should embed a youtube video using no protocol', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<a ng-href="//www.youtube.com/watch?v=LOKyEt36Kjc" embed-video controls=0 >Watch</a>')(scope);
+				rootElement = $compile('<embed-video ng-href="//www.youtube.com/watch?v=LOKyEt36Kjc" controls=0 >Watch</embed-video>')(scope);
 				scope.$apply();
-				var element = rootElement[0];
+				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
@@ -100,9 +100,9 @@ describe('embedVideo', function() {
 		it('should embed a dailymotion video', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<a ng-href="http://www.dailymotion.com/video/xxd68z" embed-video force-quality="hq" width="1280" height="720">Watch</a>')(scope);
+				rootElement = $compile('<embed-video ng-href="http://www.dailymotion.com/video/xxd68z" force-quality="hq" width="1280" height="720">Watch</embed-video>')(scope);
 				scope.$apply();
-				var element = rootElement[0];
+				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
@@ -121,9 +121,9 @@ describe('embedVideo', function() {
 		it('should embed a vimeo video', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<a ng-href="http://vimeo.com/53953" embed-video color=c9ff23 >Watch</a>')(scope);
+				rootElement = $compile('<embed-video ng-href="http://vimeo.com/53953" color=c9ff23 >Watch</embed-video>')(scope);
 				scope.$apply();
-				var element = rootElement[0];
+				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
