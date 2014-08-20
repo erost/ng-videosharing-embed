@@ -27,7 +27,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 controls: 1,
                 loop: 0,
             },
-            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel'],
+            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode'],
             playerID: 'www.youtube.com/embed/',
             protocol: 'http://',
             playerRegExp: /(http:|https:)?\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\-\w]*)(&(amp;)?[\w\?=]*)?/
@@ -38,7 +38,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 controls: 1,
                 loop: 0,
             },
-            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel'],
+            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode'],
             playerID: 'www.youtube-nocookie.com/embed/',
             protocol: 'http://',
             playerRegExp: /(http:|https:)?\/\/(www\.youtube\-nocookie\.com)\/watch\?v=([A-Za-z0-9\-\_]+)/
