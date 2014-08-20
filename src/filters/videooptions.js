@@ -5,6 +5,6 @@ angular.module('videosharing-embed').filter('videoOptions', function () {
         angular.forEach(options, function (value, key) {
             opts.push([key, value].join('='));
         });
-        return "?" + opts.join('&');
+        return opts.length > 0 ? "?" + opts.join('&') : "";
     }
 });

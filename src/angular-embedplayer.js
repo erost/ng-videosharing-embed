@@ -62,6 +62,13 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             playerID: 'www.dailymotion.com/embed/video/',
             protocol: 'http://',
             playerRegExp: /(http:|https:)?\/\/www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/
+        },
+        youku: {
+            optiotns: {},
+            whitelist: [],
+            playerID: 'player.youku.com/embed/',
+            protocol: 'http://',
+            playerRegExp: /(http:)?\/\/v\.youku\.com\/v_show\/id_([A-Za-z0-9]+).html/
         }
     };
     var players = [];

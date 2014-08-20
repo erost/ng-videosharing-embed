@@ -4,3 +4,4 @@ test/*.log
 *.log
 test-results.xml
 temp
+.c9
