@@ -64,7 +64,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             playerRegExp: /(http:|https:)?\/\/www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/
         },
         youku: {
-            optiotns: {},
+            options: {},
             whitelist: [],
             playerID: 'player.youku.com/embed/',
             protocol: 'http://',
