@@ -4,7 +4,9 @@ angular.module('videosharing-embed').service('PlayerConfig', function () {
 	'use strict';
     this.createInstance = function (init) {
         var PlayerConfig = function (init) {
+            this.type = init.type;
             this.playerRegExp = init.playerRegExp;
+            this.timeRegExp = init.timeRegExp;
             this.whitelist = init.whitelist;
             this.config = {
                 playerID: init.playerID,
@@ -17,58 +19,55 @@ angular.module('videosharing-embed').service('PlayerConfig', function () {
         return new PlayerConfig(init);
     }
 });
-
+//
 angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfig', function (PlayerConfig) {
 	'use strict';
     var configurations = {
         youtube: {
+            type: "youtube",
             options: {
                 autoplay: 0,
                 controls: 1,
-                loop: 0,
+                loop: 0
             },
-            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode'],
+            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode', 'start'],
             playerID: 'www.youtube.com/embed/',
             protocol: 'http://',
-            playerRegExp: /(http:|https:)?\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\-\w]*)(&(amp;)?[\w\?=]*)?/
-        },
-        youtubeNoCookie: {
-            options: {
-                autoplay: 0,
-                controls: 1,
-                loop: 0,
-            },
-            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode'],
-            playerID: 'www.youtube-nocookie.com/embed/',
-            protocol: 'http://',
-            playerRegExp: /(http:|https:)?\/\/(www\.youtube\-nocookie\.com)\/watch\?v=([A-Za-z0-9\-\_]+)/
+            playerRegExp: /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+            timeRegExp: /t=(([0-9]+)h)?(([0-9]{1,2})m)?(([0-9]+)s?)?/
         },
         vimeo: {
+            type: "vimeo",
             options: {
                 autoplay: 0,
-                loop: 0,
+                loop: 0
             },
             whitelist: ['autoplay', 'color', 'loop'],
             playerID: 'player.vimeo.com/video/',
             protocol: 'http://',
-            playerRegExp: /(http:|https:)?\/\/vimeo\.com\/([A-Za-z0-9]+)/
+            playerRegExp: /vimeo\.com\/([A-Za-z0-9]+)/,
+            timeRegExp: ''
         },
         dailymotion: {
+            type: "dailymotion",
             options: {
                 autoPlay: 0,
-                logo: 0,
+                logo: 0
             },
-            whitelist: ['autoPlay', 'logo', 'forceQuality'],
+            whitelist: ['autoPlay', 'logo', 'forceQuality', 'start'],
             playerID: 'www.dailymotion.com/embed/video/',
             protocol: 'http://',
-            playerRegExp: /(http:|https:)?\/\/www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/
+            playerRegExp: /www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/,
+            timeRegExp: /start=([0-9]+)/
         },
         youku: {
+            type: "youku",
             options: {},
             whitelist: [],
             playerID: 'player.youku.com/embed/',
             protocol: 'http://',
-            playerRegExp: /(http:)?\/\/v\.youku\.com\/v_show\/id_([A-Za-z0-9]+).html/
+            playerRegExp: /youku\.com\/v_show\/id_([A-Za-z0-9]+).html/,
+            timeRegExp: ''
         }
     };
     var players = [];

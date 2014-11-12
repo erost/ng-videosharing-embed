@@ -24,14 +24,14 @@ describe('embedVideo', function() {
 		it('should embed a youtube video', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<embed-video ng-href="http://www.youtube.com/watch?v=-LOKyEt36Kjc" controls=0 >Watch</embed-video>')(scope);
+				rootElement = $compile('<embed-video ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" controls=0 >Watch</embed-video>')(scope);
 				scope.$apply();
 				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('http://www.youtube.com/embed/-LOKyEt36Kjc');
-				expect(Object.keys(elementData.options).length).toEqual(3);
+				expect(elementData.url).toEqual('//www.youtube.com/embed/LOKyEt36Kjc');
+				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.controls).toEqual('0');
 				expect(elementData.options.autoplay).toEqual('0');
@@ -49,8 +49,8 @@ describe('embedVideo', function() {
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('http://www.youtube.com/embed/LOKyEt36Kjc');
-				expect(Object.keys(elementData.options).length).toEqual(3);
+				expect(elementData.url).toEqual('//www.youtube.com/embed/LOKyEt36Kjc');
+				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.controls).toEqual('0');
 				expect(elementData.options.autoplay).toEqual('0');
@@ -68,8 +68,8 @@ describe('embedVideo', function() {
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('https://www.youtube.com/embed/LOKyEt36Kjc');
-				expect(Object.keys(elementData.options).length).toEqual(3);
+				expect(elementData.url).toEqual('//www.youtube.com/embed/LOKyEt36Kjc');
+				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.controls).toEqual('0');
 				expect(elementData.options.autoplay).toEqual('0');
@@ -88,7 +88,7 @@ describe('embedVideo', function() {
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
 				expect(elementData.url).toEqual('//www.youtube.com/embed/LOKyEt36Kjc');
-				expect(Object.keys(elementData.options).length).toEqual(3);
+				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.controls).toEqual('0');
 				expect(elementData.options.autoplay).toEqual('0');
@@ -106,8 +106,8 @@ describe('embedVideo', function() {
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('http://www.dailymotion.com/embed/video/xxd68z');
-				expect(Object.keys(elementData.options).length).toEqual(3);
+				expect(elementData.url).toEqual('//www.dailymotion.com/embed/video/xxd68z');
+				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.forceQuality).toEqual('hq');
 				expect(elementData.options.logo).toEqual('0');
 				expect(elementData.options.autoPlay).toEqual('0');
@@ -127,8 +127,8 @@ describe('embedVideo', function() {
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('http://player.vimeo.com/video/53953');
-				expect(Object.keys(elementData.options).length).toEqual(3);
+				expect(elementData.url).toEqual('//player.vimeo.com/video/53953');
+				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.color).toEqual('c9ff23');
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.autoplay).toEqual('0');
