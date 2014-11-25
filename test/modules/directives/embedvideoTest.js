@@ -128,7 +128,6 @@ describe('embedVideo', function() {
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
 				expect(elementData.url).toEqual('//player.vimeo.com/video/53953');
-				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.color).toEqual('c9ff23');
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.autoplay).toEqual('0');

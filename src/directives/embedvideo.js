@@ -2,7 +2,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 	'use strict';
     return {
         restrict: "E",
-        template: '<iframe width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" allowfullscreen frameborder="0"></iframe>',
+        template: '<iframe data-ng-attr-id="{{id}} "width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" allowfullscreen frameborder="0"></iframe>',
         scope: {
             height: '@',
             width: '@'
@@ -14,6 +14,10 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 
             $attrs.$observe('height', function(h) {
                 $scope.height = h;
+            });
+            
+            $attrs.$observe('iframeId', function(id) {
+                $scope.id = id;
             });
 
             //handle the use of both ng-href and href
@@ -40,7 +44,8 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 
                 //overwrite playback options
                 angular.forEach($filter('whitelist')($attrs, player.whitelist), function (value, key) {
-                    config.options[key] = value;
+                    var normalizedKey = config.transformAttrMap[key] != undefined ? config.transformAttrMap[key] : key;
+                    config.options[normalizedKey] = value;
                 });
 
                 config.options.start = 0;

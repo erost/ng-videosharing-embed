@@ -30,7 +30,7 @@ Once installed, add videosharing-embed as a dependency in your module:
 * **Youtube** (iframe)
 * **Youtube no cookies** (iframe)
 * **Dailymotion** (iframe)
-* **Vimeo** (iframe)
+* **Vimeo** (iframe, JS API support)
 * **Youku** (iframe, tentative)
 
 ### Test

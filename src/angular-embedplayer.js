@@ -10,7 +10,8 @@ angular.module('videosharing-embed').service('PlayerConfig', function () {
             this.whitelist = init.whitelist;
             this.config = {
                 playerID: init.playerID,
-                options: init.options
+                options: init.options,
+                transformAttrMap: init.transformAttrMap
             };
             this.isPlayerFromURL = function (url) {
                 return (url.match(this.playerRegExp) != null);
@@ -31,6 +32,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 loop: 0
             },
             whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode', 'start', 'showinfo'],
+            transformAttrMap: {},
             playerID: 'www.youtube.com/embed/',
             protocol: 'http://',
             playerRegExp: /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
@@ -40,9 +42,12 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             type: "vimeo",
             options: {
                 autoplay: 0,
-                loop: 0
+                loop: 0,
+                api: 0,
+                player_id: ''
             },
-            whitelist: ['autoplay', 'color', 'loop'],
+            whitelist: ['autoplay', 'color', 'loop', 'api', 'playerId'],
+            transformAttrMap: { 'playerId' : 'player_id'},
             playerID: 'player.vimeo.com/video/',
             protocol: 'http://',
             playerRegExp: /vimeo\.com\/([A-Za-z0-9]+)/,
@@ -55,6 +60,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 logo: 0
             },
             whitelist: ['autoPlay', 'logo', 'forceQuality', 'start'],
+            transformAttrMap: {},
             playerID: 'www.dailymotion.com/embed/video/',
             protocol: 'http://',
             playerRegExp: /www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/,
@@ -64,6 +70,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             type: "youku",
             options: {},
             whitelist: [],
+            transformAttrMap: {},
             playerID: 'player.youku.com/embed/',
             protocol: 'http://',
             playerRegExp: /youku\.com\/v_show\/id_([A-Za-z0-9]+).html/,
