@@ -27,11 +27,17 @@ Once installed, add videosharing-embed as a dependency in your module:
 
 ### Supported Video Sources
 
-* **Youtube** (iframe)
-* **Youtube no cookies** (iframe)
-* **Dailymotion** (iframe)
+* **Youtube** (standard and nocookies, iframe, JS API support)
+* **Dailymotion** (iframe, JS API support)
 * **Vimeo** (iframe, JS API support)
 * **Youku** (iframe, tentative)
+
+Note on JS API:
+Each iframe should be identified with a unique id. That ID can be configured by **iframe-id**
+Example
+```html
+<embed-video iframe-id="vimeo1" api="1" player_id="vimeo1" ng-href="//vimeo.com/111690998"><a href="//vimeo.com/111690998">Watch</a></embed-video>
+```
 
 ### Test
 
@@ -46,4 +52,4 @@ Example
 ```
 
 Player's options are unique for each video source.
-For a list of available options, take a look at src/angular-embedplayer.js
+For a list of available options, take a look at src/angular-embedplayer.js, or the player official documentation
