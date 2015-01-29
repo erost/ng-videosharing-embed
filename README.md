@@ -32,8 +32,10 @@ Once installed, add videosharing-embed as a dependency in your module:
 * **Vimeo** (iframe, JS API support)
 * **Youku** (iframe, tentative)
 
-Note on JS API:
+**Note on JS API:**
+
 Each iframe should be identified with a unique id. That ID can be configured by **iframe-id**
+
 Example
 ```html
 <embed-video iframe-id="vimeo1" api="1" player_id="vimeo1" ng-href="//vimeo.com/111690998"><a href="//vimeo.com/111690998">Watch</a></embed-video>
