@@ -10,9 +10,10 @@ angular.module('videosharing-embed').service('PlayerConfig', function () {
             this.whitelist = init.whitelist;
             this.config = {
                 playerID: init.playerID,
-                options: init.options,
+                settings: init.settings,
                 transformAttrMap: init.transformAttrMap
             };
+            this.processSettings = init.processSettings;
             this.isPlayerFromURL = function (url) {
                 return (url.match(this.playerRegExp) != null);
             }
@@ -26,13 +27,19 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
     var configurations = {
         youtube: {
             type: "youtube",
-            options: {
+            settings: {
                 autoplay: 0,
                 controls: 1,
                 loop: 0
             },
             whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode', 'start', 'showinfo'],
             transformAttrMap: {},
+            processSettings : function(settings, videoID) {
+                if(settings['loop'] == 1 && (settings['playlist'] == undefined)) {
+                    settings['playlist'] = videoID;
+                }
+                return settings;
+            },
             playerID: 'www.youtube.com/embed/',
             protocol: 'http://',
             playerRegExp: /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
@@ -40,7 +47,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
         },
         vimeo: {
             type: "vimeo",
-            options: {
+            settings: {
                 autoplay: 0,
                 loop: 0,
                 api: 0,
@@ -48,6 +55,9 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             },
             whitelist: ['autoplay', 'color', 'loop', 'api', 'playerId'],
             transformAttrMap: { 'playerId' : 'player_id'},
+            processSettings : function(settings, videoID) {
+                return settings;
+            },
             playerID: 'player.vimeo.com/video/',
             protocol: 'http://',
             playerRegExp: /vimeo\.com\/([A-Za-z0-9]+)/,
@@ -55,12 +65,15 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
         },
         dailymotion: {
             type: "dailymotion",
-            options: {
+            settings: {
                 autoPlay: 0,
                 logo: 0
             },
             whitelist: ['autoPlay', 'logo', 'forceQuality', 'start'],
             transformAttrMap: {},
+            processSettings : function(settings, videoID) {
+                return settings;
+            },
             playerID: 'www.dailymotion.com/embed/video/',
             protocol: 'http://',
             playerRegExp: /www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/,
@@ -68,9 +81,12 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
         },
         youku: {
             type: "youku",
-            options: {},
+            settings: {},
             whitelist: [],
             transformAttrMap: {},
+            processSettings : function(settings, videoID) {
+                return settings;
+            },
             playerID: 'player.youku.com/embed/',
             protocol: 'http://',
             playerRegExp: /youku\.com\/v_show\/id_([A-Za-z0-9]+).html/,

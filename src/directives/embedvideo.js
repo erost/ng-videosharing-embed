@@ -45,30 +45,33 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 //overwrite playback options
                 angular.forEach($filter('whitelist')($attrs, player.whitelist), function (value, key) {
                     var normalizedKey = config.transformAttrMap[key] != undefined ? config.transformAttrMap[key] : key;
-                    config.options[normalizedKey] = value;
+                    config.settings[normalizedKey] = value;
                 });
 
-                config.options.start = 0;
+                config.settings.start = 0;
 
                 if (time) {
                     switch (player.type) {
                         case "youtube":
-                            config.options.start += (parseInt(time[2] || "0") * 60 * 60 );
-                            config.options.start += (parseInt(time[4] || "0") * 60 );
-                            config.options.start += (parseInt(time[6] || "0"));
+                            config.settings.start += (parseInt(time[2] || "0") * 60 * 60 );
+                            config.settings.start += (parseInt(time[4] || "0") * 60 );
+                            config.settings.start += (parseInt(time[6] || "0"));
                             break;
 
                         case "dailymotion":
-                            config.options.start += (parseInt(time[1] || "0"));
+                            config.settings.start += (parseInt(time[1] || "0"));
                             break;
 
                         default:
                             break;
                     }
                 }
+                
+                //process the settings for each player
+                var settings = player.processSettings(config.settings, videoID);
 
                 //build and trust the video URL
-                var untrustedVideoSrc = '//' + config.playerID + videoID + $filter('videoOptions')(config.options);
+                var untrustedVideoSrc = '//' + config.playerID + videoID + $filter('videoSettings')(settings);
                 $scope.trustedVideoSrc = $sce.trustAsResourceUrl(untrustedVideoSrc);
             });
         }

@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       'myproject': {
         src: [ 'src/angular-embedplayer.js', 
             'src/filters/whitelist.js', 
-            'src/filters/videooptions.js',
+            'src/filters/videosettings.js',
             'src/directives/embedvideo.js'],
         dest: 'temp/ng-videosharing-embed.js'
       }
