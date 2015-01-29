@@ -32,7 +32,10 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 controls: 1,
                 loop: 0
             },
-            whitelist: ['autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode', 'start', 'showinfo'],
+            whitelist: ['autohide', 'cc_load_policy', 'color', 'disablekb', 'enablejsapi', 
+                'autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode', 'start', 'showinfo',
+                'end', 'fs', 'hl', 'iv_load_policy', 'list', 'listType', 'modestbranding', 'origin',
+                'playerapiid', 'playsinline', 'theme'],
             transformAttrMap: {},
             processSettings : function(settings, videoID) {
                 if(settings['loop'] == 1 && (settings['playlist'] == undefined)) {
@@ -53,7 +56,8 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 api: 0,
                 player_id: ''
             },
-            whitelist: ['autoplay', 'color', 'loop', 'api', 'playerId'],
+            whitelist: ['autoplay', 'autopause', 'badge', 'byline', 'color', 'portrait', 'loop', 'api',
+                'playerId', 'title'],
             transformAttrMap: { 'playerId' : 'player_id'},
             processSettings : function(settings, videoID) {
                 return settings;
@@ -69,7 +73,8 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 autoPlay: 0,
                 logo: 0
             },
-            whitelist: ['autoPlay', 'logo', 'forceQuality', 'start'],
+            whitelist: ['api', 'autoPlay', 'background', 'chromeless', 'controls', 'foreground', 'highlight', 'html', 
+                'id', 'info', 'logo', 'network', 'quality', 'related', 'startscreen', 'webkit-playsinline', 'syndication'],
             transformAttrMap: {},
             processSettings : function(settings, videoID) {
                 return settings;

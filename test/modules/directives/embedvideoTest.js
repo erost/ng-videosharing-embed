@@ -100,15 +100,14 @@ describe('embedVideo', function() {
 		it('should embed a dailymotion video', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<embed-video ng-href="http://www.dailymotion.com/video/xxd68z" force-quality="hq" width="1280" height="720">Watch</embed-video>')(scope);
+				rootElement = $compile('<embed-video ng-href="http://www.dailymotion.com/video/xxd68z" width="1280" height="720">Watch</embed-video>')(scope);
 				scope.$apply();
 				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
 				expect(elementData.url).toEqual('//www.dailymotion.com/embed/video/xxd68z');
-				expect(Object.keys(elementData.options).length).toEqual(4);
-				expect(elementData.options.forceQuality).toEqual('hq');
+				expect(Object.keys(elementData.options).length).toEqual(3);
 				expect(elementData.options.logo).toEqual('0');
 				expect(elementData.options.autoPlay).toEqual('0');
 				expect(element.getAttribute('width').trim()).toEqual('1280');
