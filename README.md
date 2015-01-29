@@ -9,7 +9,7 @@ Embed videos using AngularJS directives
 
 A small project I've started while learning angularJS. It has no real purpose other than educational.
 
-[![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.2.0/dist/gittip.png)](https://www.gittip.com/erost/)
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SX83QR8JRVZWW)
 
 ## Usage
 
