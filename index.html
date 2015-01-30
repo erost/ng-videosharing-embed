@@ -1,81 +1,246 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>ng-videosharing-embed by erost</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>ng-videosharing-embed</h1>
-        <p>embed youtube/vimeo/dailymotion videos using AngularJS directives</p>
-
-        <p class="view"><a href="https://github.com/erost/ng-videosharing-embed">View the Project on GitHub <small>erost/ng-videosharing-embed</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/erost/ng-videosharing-embed/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/erost/ng-videosharing-embed/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/erost/ng-videosharing-embed">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>ng-videosharing-embed</h1>
-
-<p>Embed videos using AngularJS directives</p>
-
-<p><a href="https://travis-ci.org/erost/ng-videosharing-embed"><img src="https://travis-ci.org/erost/ng-videosharing-embed.png?branch=master" alt="Build Status"></a></p>
-
-<hr><h2>Purpose</h2>
-
-<p>A small project I've started while learning angularJS. It has no real purpose other than educational.</p>
-
-<h2>Usage</h2>
-
-<h3>Requirements</h3>
-
-<ul>
-<li>
-<strong>AngularJS v1.0.0+</strong> is currently required.</li>
-</ul><h3>Supported Video Sources</h3>
-
-<ul>
-<li>
-<strong>Youtube</strong> (iframe)</li>
-<li>
-<strong>Dailymotion</strong> (iframe)</li>
-<li>
-<strong>Vimeo</strong> (iframe)</li>
-</ul><h3>Test</h3>
-
-<p>Generic</p>
-
-<div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"&lt;videoUrl&gt;"</span> <span class="na">embev-video</span> <span class="na">width=</span><span class="s">xxx</span> <span class="na">height=</span><span class="s">xxx</span> <span class="err">[</span><span class="na">options</span><span class="err">]</span><span class="nt">&gt;&lt;/a&gt;</span>
-</pre></div>
-
-<p>Example</p>
-
-<div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.youtube.com/watch?v=LOKyEt36Kjc"</span> <span class="na">embed-video</span> <span class="na">controls=</span><span class="s">0</span><span class="nt">&gt;&lt;/a&gt;</span>
-</pre></div>
-
-<p>Options are configured for each player, and allowed options are filtered using a whitelist.</p>
-
-<p>Note: camelCase options must be changed to dash-format</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/erost">erost</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+	<head>
+	  <title>ng-videosharing-embed</title>
+	  
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
     
-  </body>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+		<script src="https://rawgit.com/erost/ng-videosharing-embed/master/build/ng-videosharing-embed.min.js"></script>
+		
+		<script src="https://www.youtube.com/iframe_api"></script>
+		
+		
+		<script type="text/javascript">
+      //start youtube code
+		  var youtubePlayer;
+		  var isYoutubePlayerReady = false;
+      function onYouTubeIframeAPIReady() {
+        youtubePlayer = new YT.Player('youtube1', {
+          events: {
+            'onReady': onPlayerReady
+          }
+        });
+      }
+      
+      function onPlayerReady() {
+        isYoutubePlayerReady = true;
+      }
+      
+      function playYoutubeVideo() {
+        if(isYoutubePlayerReady) {
+          youtubePlayer.playVideo();
+        }
+      }
+      
+      function pauseYoutubeVideo() {
+        if(isYoutubePlayerReady) {
+          youtubePlayer.pauseVideo();
+        }
+      }
+      
+      function stopYoutubeVideo() {
+        if(isYoutubePlayerReady) {
+          youtubePlayer.stopVideo();
+        }
+      }
+      
+      //Dailymotion API
+      function playDailymotionVideo() {
+        var win = document.getElementById("dailymotion1").contentWindow;
+        win.postMessage('play', '*');
+      }
+      
+      function pauseDailymotionVideo() {
+        var win = document.getElementById("dailymotion1").contentWindow;
+        win.postMessage('pause', '*');
+      }
+      
+      //Vimeo API
+		  var vimeoPlayer = null; 
+		  var isVimeoPlayerReady = false;
+      
+      function playVimeoVideo() {
+        if(isVimeoPlayerReady) {
+          vimeoPlayer.api('play');
+        }
+      }
+      
+      function pauseVimeoVideo() {
+        if(isVimeoPlayerReady) {
+          vimeoPlayer.api('pause');
+        }
+      }
+      
+      function loadVimeoPlayer() { 
+        vimeoPlayer = $f(document.getElementById("vimeo1"));
+		    
+		    vimeoPlayer.addEvent('ready', function() {
+          isVimeoPlayerReady = true;
+        });
+      };
+      
+      window.onload = function() {
+        loadVimeoPlayer()
+      };
+		  
+		</script>
+		
+		<style>
+		  html {
+        font-family: Raleway, HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        -ms-text-size-adjust: 100%; 
+        -webkit-text-size-adjust: 100%; 
+      }
+
+      body {
+        background-color: white;
+        margin: 0;
+      }
+      
+      header {
+        background-color: #3466a4;
+        height: 80px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+      
+      .container {
+        width: 100%; 
+        max-width: 960px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+        box-sizing: border-box; 
+      }
+      
+      .navbar ul {
+        margin:0;
+        margin-top:5px;
+        padding:0;
+      }
+      
+      .navbar ul, .navbar li {
+        display:inline-block;
+      }
+      
+      .navbar li {
+        padding:5px;
+        margin-bottom:5px;
+        border-bottom:2px solid rgba(0,0,0,0);
+      }
+      
+      .navbar li:hover, .navbar li.active {
+        border-bottom:2px solid white;
+      }
+      
+      .navbar a {
+        color:white;
+        text-decoration:none;
+      }
+      
+      .navbar-list.right {
+        float:right;
+      }
+      h1   {
+        color: #383838;
+        font-size: 2rem;
+        font-weight: normal;
+      }
+      
+      h2 {
+        color: #383838;
+        font-size: 1rem;
+        font-weight: normal;
+      }
+      
+      main .example {
+        margin-bottom: 20px;
+      }
+      
+      main .example .player,  main .example .controls {
+        text-align: center;
+      }
+      
+      ol.controls {
+        margin:0;
+        margin-top:5px;
+        padding:0;
+      }
+      
+      ol.controls li {
+        display:inline-block;
+        list-style-type: none;
+        margin-right: 50px;
+      }
+      
+      ol.controls li:last-of-type {
+        margin-right: 0;
+      }
+      
+    </style>
+	</head>
+	<body>
+	  <header>
+	    <div class="container">
+  	    <nav class="navbar">
+          <ul class="navbar-list left">
+            <li><a href="http://erost.net">erost.net</a>
+          </ul>
+          <ul class="navbar-list right">
+            <li><a href="https://github.com/erost/ng-videosharing-embed">Github</a>
+          </ul>
+        </nav>
+      </div>
+	  </header>
+	  
+		<main class="container" ng-app="videosharing-embed">
+		  <h1>ng-videosharing-embed examples page</h1>
+		  <div class="example">
+		    <h2>Youtube</h2>
+		    <div class="player">
+		      <embed-video width=854 height=480 iframe-id="youtube1" enablejsapi="1"
+		        ng-href="//www.youtube.com/watch?v=wtLJPvx7-ys"><a href="//www.youtube.com/watch?v=wtLJPvx7-ys">Watch</a></embed-video>
+		    </div>
+		    <div class="controls">
+		      <ol class="controls">
+		        <li><a href="javascript:playYoutubeVideo()">Start</a></li>
+		        <li><a href="javascript:pauseYoutubeVideo()">Pause</a></li>
+		        <li><a href="javascript:stopYoutubeVideo()">Stop</a></li>
+		      </ol>
+		    </div>
+		  </div>
+		  
+		  <div class="example">
+		    <h2>Dailymotion</h2>
+		    <div class="player">
+		      <embed-video iframe-id="dailymotion1" width=854 height=480 api="postMessage"
+		        ng-href="//www.dailymotion.com/video/x29k0ko_les-questions-qui-fachent-yes_fun&start=53">
+		    </div>
+		    <div class="controls">
+		      <ol class="controls">
+		        <li><a href="javascript:playDailymotionVideo()">Start</a></li>
+		        <li><a href="javascript:pauseDailymotionVideo()">Pause</a></li>
+		      </ol>
+		    </div>
+		  </div>
+		  
+		  <div class="example">
+		    <h2>Vimeo</h2>
+		    <div class="player">
+		      <embed-video iframe-id="vimeo1" api="1" player_id="vimeo1" width=854 height=480 
+		        ng-href="//vimeo.com/111690998"><a href="//vimeo.com/111690998">Watch</a></embed-video>
+		    </div>
+		    <div class="controls">
+		      <ol class="controls">
+		        <li><a href="javascript:playVimeoVideo()">Start</a></li>
+		        <li><a href="javascript:pauseVimeoVideo()">Pause</a></li>
+		      </ol>
+		    </div>
+		  </div>
+    </main>
+    
+	</body>
 </html>
