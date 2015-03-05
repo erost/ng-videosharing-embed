@@ -44,8 +44,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 return settings;
             },
             playerID: 'www.youtube.com/embed/',
-            protocol: 'http://',
-            playerRegExp: /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+            playerRegExp: /([a-z\:\/]*\/\/)(?:www\.)?(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
             timeRegExp: /t=(([0-9]+)h)?(([0-9]{1,2})m)?(([0-9]+)s?)?/
         },
         vimeo: {
@@ -63,8 +62,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 return settings;
             },
             playerID: 'player.vimeo.com/video/',
-            protocol: 'http://',
-            playerRegExp: /vimeo\.com\/([A-Za-z0-9]+)/,
+            playerRegExp: /([a-z\:\/]*\/\/)(?:www\.)?vimeo\.com\/([A-Za-z0-9]+)/,
             timeRegExp: ''
         },
         dailymotion: {
@@ -80,8 +78,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 return settings;
             },
             playerID: 'www.dailymotion.com/embed/video/',
-            protocol: 'http://',
-            playerRegExp: /www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/,
+            playerRegExp: /([a-z\:\/]*\/\/)(?:www\.)?www\.dailymotion\.com\/video\/([A-Za-z0-9]+)/,
             timeRegExp: /start=([0-9]+)/
         },
         youku: {
@@ -93,8 +90,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 return settings;
             },
             playerID: 'player.youku.com/embed/',
-            protocol: 'http://',
-            playerRegExp: /youku\.com\/v_show\/id_([A-Za-z0-9]+).html/,
+            playerRegExp: /([a-z\:\/]*\/\/)(?:www\.)?youku\.com\/v_show\/id_([A-Za-z0-9]+).html/,
             timeRegExp: ''
         }
     };

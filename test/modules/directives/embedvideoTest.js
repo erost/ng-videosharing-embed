@@ -24,7 +24,7 @@ describe('embedVideo', function() {
 		it('should embed a youtube video', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<embed-video ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" controls=0 >Watch</embed-video>')(scope);
+				rootElement = $compile('<embed-video ng-href="//www.youtube.com/watch?v=LOKyEt36Kjc" controls=0 >Watch</embed-video>')(scope);
 				scope.$apply();
 				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();
@@ -49,7 +49,7 @@ describe('embedVideo', function() {
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('//www.youtube.com/embed/LOKyEt36Kjc');
+				expect(elementData.url).toEqual('http://www.youtube.com/embed/LOKyEt36Kjc');
 				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.controls).toEqual('0');
@@ -68,7 +68,7 @@ describe('embedVideo', function() {
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('//www.youtube.com/embed/LOKyEt36Kjc');
+				expect(elementData.url).toEqual('https://www.youtube.com/embed/LOKyEt36Kjc');
 				expect(Object.keys(elementData.options).length).toEqual(4);
 				expect(elementData.options.loop).toEqual('0');
 				expect(elementData.options.controls).toEqual('0');
@@ -106,7 +106,7 @@ describe('embedVideo', function() {
 				expect(element).toBeDefined();
 				expect(element.nodeName.toLowerCase()).toEqual('iframe');
 				var elementData = getURLandOptions(element.getAttribute('src'));
-				expect(elementData.url).toEqual('//www.dailymotion.com/embed/video/xxd68z');
+				expect(elementData.url).toEqual('http://www.dailymotion.com/embed/video/xxd68z');
 				expect(Object.keys(elementData.options).length).toEqual(3);
 				expect(elementData.options.logo).toEqual('0');
 				expect(elementData.options.autoPlay).toEqual('0');
@@ -120,7 +120,7 @@ describe('embedVideo', function() {
 		it('should embed a vimeo video', inject(function () {
 			inject(function ($compile) {
 				var rootElement;
-				rootElement = $compile('<embed-video ng-href="http://vimeo.com/53953" color=c9ff23 >Watch</embed-video>')(scope);
+				rootElement = $compile('<embed-video ng-href="//vimeo.com/53953" color=c9ff23 >Watch</embed-video>')(scope);
 				scope.$apply();
 				var element = rootElement[0].firstChild;
 				expect(element).toBeDefined();

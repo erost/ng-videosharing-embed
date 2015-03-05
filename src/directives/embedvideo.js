@@ -37,8 +37,11 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 if (player === null) {
                     return; //haven't found a match for a valid registered player
                 }
+                
+                var parameters = url.match(player.playerRegExp);
 
-                var videoID = url.match(player.playerRegExp)[1],
+                var videoID = parameters[2],
+                    protocol = parameters[1],
                     time = url.match(player.timeRegExp),
                     config = player.config;
 
@@ -71,7 +74,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 var settings = player.processSettings(config.settings, videoID);
 
                 //build and trust the video URL
-                var untrustedVideoSrc = '//' + config.playerID + videoID + $filter('videoSettings')(settings);
+                var untrustedVideoSrc = protocol + config.playerID + videoID + $filter('videoSettings')(settings);
                 $scope.trustedVideoSrc = $sce.trustAsResourceUrl(untrustedVideoSrc);
             });
         }
