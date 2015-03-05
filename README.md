@@ -11,6 +11,10 @@ A small project I've started while learning angularJS. It has no real purpose ot
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SX83QR8JRVZWW)
 
+## Examples
+
+http://erost.net/ng-videosharing-embed/
+
 ## Usage
 
 ### Install
