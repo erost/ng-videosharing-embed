@@ -1,6 +1,6 @@
 {
   "name": "ng-videosharing-embed",
-  "version": "0.2.5",
+  "version": "0.3.1",
   "description": "Embed videos using AngularJS directives",
   "directories": {
     "example": "examples",
