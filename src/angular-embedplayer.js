@@ -62,7 +62,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 return settings;
             },
             playerID: 'player.vimeo.com/video/',
-            playerRegExp: /([a-z\:\/]*\/\/)(?:www\.)?vimeo\.com\/([A-Za-z0-9]+)/,
+            playerRegExp: /([a-z\:\/]*\/\/)(?:www\.)?vimeo\.com\/(?:channels\/[A-Za-z0-9]+\/)?([A-Za-z0-9]+)/,
             timeRegExp: ''
         },
         dailymotion: {
