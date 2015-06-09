@@ -1,4 +1,4 @@
-angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', '$sce', function ($filter, RegisteredPlayers, $sce) {
+angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'RegisteredPlayers', '$sce', '$window', function ($filter, RegisteredPlayers, $sce, $window) {
 	'use strict';
     return {
         restrict: "E",
@@ -47,22 +47,22 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 
                 //overwrite playback options
                 angular.forEach($filter('whitelist')($attrs, player.whitelist), function (value, key) {
-                    var normalizedKey = config.transformAttrMap[key] != undefined ? config.transformAttrMap[key] : key;
-                    config.settings[normalizedKey] = value;
+                    var normalizedKey = player.transformAttrMap[key] != undefined ? player.transformAttrMap[key] : key;
+                    player.settings[normalizedKey] = value;
                 });
 
-                config.settings.start = 0;
+                player.settings.start = 0;
 
                 if (time) {
                     switch (player.type) {
                         case "youtube":
-                            config.settings.start += (parseInt(time[2] || "0") * 60 * 60 );
-                            config.settings.start += (parseInt(time[4] || "0") * 60 );
-                            config.settings.start += (parseInt(time[6] || "0"));
+                            player.settings.start += (parseInt(time[2] || "0") * 60 * 60 );
+                            player.settings.start += (parseInt(time[4] || "0") * 60 );
+                            player.settings.start += (parseInt(time[6] || "0"));
                             break;
 
                         case "dailymotion":
-                            config.settings.start += (parseInt(time[1] || "0"));
+                            player.settings.start += (parseInt(time[1] || "0"));
                             break;
 
                         default:
@@ -70,11 +70,19 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                     }
                 }
                 
-                //process the settings for each player
-                var settings = player.processSettings(config.settings, videoID);
-
+                //check if there is a need to add additional resources to the page...
+                if(player.isAdditionaResRequired()) {
+                    var body = angular.element($window.document.querySelector('body'));
+                    for(var r = 0; r < player.additionalRes.length; r++) {
+                        var res = player.additionalRes[r];
+                        if($window.document.querySelector('#'+res.id) == null) {
+                            body.append(res.element);
+                        }
+                    }
+                }
+                
                 //build and trust the video URL
-                var untrustedVideoSrc = protocol + config.playerID + videoID + $filter('videoSettings')(settings);
+                var untrustedVideoSrc = player.buildSrcURL(protocol, videoID);
                 $scope.trustedVideoSrc = $sce.trustAsResourceUrl(untrustedVideoSrc);
             });
         }

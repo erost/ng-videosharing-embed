@@ -27,7 +27,7 @@ Once installed, add videosharing-embed as a dependency in your module:
 
 ### Requirements
 
-* **AngularJS v1.0.0+** is supported
+* **AngularJS v1.2.0+** is supported
 
 ### Supported Video Sources
 
@@ -35,6 +35,7 @@ Once installed, add videosharing-embed as a dependency in your module:
 * **Dailymotion** (iframe, JS API support)
 * **Vimeo** (iframe, JS API support)
 * **Youku** (iframe, tentative)
+* **Vine** (iframe, with embed script)
 
 **Note on JS API:**
 
