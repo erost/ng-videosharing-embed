@@ -34,7 +34,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 controls: 1,
                 loop: 0
             },
-            whitelist: ['autohide', 'cc_load_policy', 'color', 'disablekb', 'enablejsapi', 
+            whitelist: ['autohide', 'cc_load_policy', 'color', 'disablekb', 'enablejsapi',
                 'autoplay', 'controls', 'loop', 'playlist', 'rel', 'wmode', 'start', 'showinfo',
                 'end', 'fs', 'hl', 'iv_load_policy', 'list', 'listType', 'modestbranding', 'origin',
                 'playerapiid', 'playsinline', 'theme'],
@@ -87,7 +87,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 autoPlay: 0,
                 logo: 0
             },
-            whitelist: ['api', 'autoPlay', 'background', 'chromeless', 'controls', 'foreground', 'highlight', 'html', 
+            whitelist: ['api', 'autoPlay', 'background', 'chromeless', 'controls', 'foreground', 'highlight', 'html',
                 'id', 'info', 'logo', 'network', 'quality', 'related', 'startscreen', 'webkit-playsinline', 'syndication'],
             transformAttrMap: {},
             processSettings : function(settings, videoID) {
@@ -124,7 +124,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             additionalRes: []
         },
         vine: {
-            type: "youku",
+            type: "vine",
             settings: {
                 audio: 0,
                 start: 0,
@@ -133,7 +133,6 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
             whitelist: ['audio','start','type'],
             transformAttrMap: {},
             processSettings : function(settings, videoID) {
-                delete settings['type'];
                 return settings;
             },
             buildSrcURL: function(protocol, videoID) {
