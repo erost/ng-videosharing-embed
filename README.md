@@ -58,5 +58,21 @@ Example
 <embed-video data-ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" controls=0><a href="http://www.youtube.com/watch?v=LOKyEt36Kjc">Watch</a></embed-video>
 ```
 
+Callback example
+```html
+<embed-video data-ng-href="{{videoUrl}}" on-change="videoSelected(videoId, provider)" controls=0><a href="http://www.youtube.com/watch?v=LOKyEt36Kjc">Watch</a></embed-video>
+```
+```js
+...
+$scope.videoSelected = function(videoId, provider) {
+    if (videoId) {
+        console.log("Video from " + provider + " with id " + videoId + " was selected");
+    } else {
+        console.log("No valid URL entered");
+    }
+}
+...
+```
+
 Player's options are unique for each video source.
 For a list of available options, take a look at src/angular-embedplayer.js, or the player official documentation

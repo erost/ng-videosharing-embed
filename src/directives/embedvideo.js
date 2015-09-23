@@ -5,7 +5,8 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
         template: '<iframe data-ng-attr-id="{{id}} "width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" allowfullscreen frameborder="0"></iframe>',
         scope: {
             height: '@',
-            width: '@'
+            width: '@',
+            onChange: '&',
         },
         link: function ($scope, $element, $attrs) {
             var currentHref = undefined;
@@ -38,6 +39,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 
                 if (player === null) {
                     //haven't found a match for a valid registered player
+                    $scope.onChange();
                     return;
                 }
 
@@ -83,6 +85,9 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                         }
                     }
                 }
+
+                // Call callback
+                $scope.onChange({videoId: videoID, provider: player.type});
 
                 //build and trust the video URL
                 var untrustedVideoSrc = player.buildSrcURL(protocol, videoID);
