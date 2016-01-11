@@ -87,7 +87,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 autoPlay: 0,
                 logo: 0
             },
-            whitelist: ['api', 'autoPlay', 'background', 'chromeless', 'controls', 'foreground', 'highlight', 'html',
+            whitelist: ['api', 'autoplay', 'background', 'chromeless', 'controls', 'foreground', 'highlight', 'html',
                 'id', 'info', 'logo', 'network', 'quality', 'related', 'startscreen', 'webkit-playsinline', 'syndication'],
             transformAttrMap: {},
             processSettings : function(settings, videoID) {
