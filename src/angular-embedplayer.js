@@ -14,7 +14,7 @@ angular.module('videosharing-embed').service('PlayerConfig', function () {
             this.transformAttrMap = init.transformAttrMap;
             this.processSettings = init.processSettings;
             this.isPlayerFromURL = function (url) {
-                return (url.match(this.playerRegExp) != null);
+                return (url && url.match(this.playerRegExp) != null);
             },
             this.buildSrcURL = init.buildSrcURL,
             this.isAdditionaResRequired = init.isAdditionaResRequired;
