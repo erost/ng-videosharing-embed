@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96560a14-11d6-45db-a64d-37de7ad6f259" name="Default" comment="" />
+    <list default="true" id="96560a14-11d6-45db-a64d-37de7ad6f259" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/directives/embedvideo.js" afterPath="$PROJECT_DIR$/src/directives/embedvideo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/ng-videosharing-embed.min.js" afterPath="$PROJECT_DIR$/build/ng-videosharing-embed.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="ng-videosharing-embed.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +28,8 @@
       <file leaf-file-name="embedvideo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/directives/embedvideo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.4">
-              <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+            <state vertical-scroll-proportion="-3.6333334">
+              <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -41,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="angular-embedplayer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="angular-embedplayer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/angular-embedplayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4695652">
-              <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+            <state vertical-scroll-proportion="-2.5333333">
+              <caret line="16" column="40" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -71,14 +75,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ng-videosharing-embed.min.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ng-videosharing-embed.min.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build/ng-videosharing-embed.min.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="73" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+              <caret line="0" column="69" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="5770" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,9 +93,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/build/ng-videosharing-embed.min.js" />
         <option value="$PROJECT_DIR$/src/angular-embedplayer.js" />
         <option value="$PROJECT_DIR$/src/directives/embedvideo.js" />
-        <option value="$PROJECT_DIR$/build/ng-videosharing-embed.min.js" />
       </list>
     </option>
   </component>
@@ -370,9 +372,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="1518" selection-start-line="1" selection-start-column="1517" selection-end-line="1" selection-end-column="1518" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -400,10 +400,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/angular-embedplayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5333333">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/directives/embedvideo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4">
-          <caret line="33" column="69" selection-start-line="33" selection-start-column="69" selection-end-line="33" selection-end-column="69" />
+        <state vertical-scroll-proportion="-3.6333334">
+          <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -411,17 +419,7 @@
     <entry file="file://$PROJECT_DIR$/build/ng-videosharing-embed.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="73" selection-start-line="1" selection-start-column="73" selection-end-line="1" selection-end-column="73" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/angular-embedplayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4695652">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+          <caret line="0" column="69" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="5770" />
           <folding />
         </state>
       </provider>

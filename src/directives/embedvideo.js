@@ -25,7 +25,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 
             //handle the use of both ng-href and href
             $attrs.$observe('href', function(url) {
-                if (url === undefined || url === currentHref) {
+                if (!url || url === currentHref) {
                     return;
                 }
                 currentHref = url;
