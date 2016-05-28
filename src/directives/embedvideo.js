@@ -40,7 +40,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 if (player === null) {
                     //haven't found a match for a valid registered player
                     $scope.onChange();
-                    return;
+                    return $element.remove();
                 }
 
                 var parameters = url.match(player.playerRegExp);
