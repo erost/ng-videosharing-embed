@@ -41,7 +41,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                     //haven't found a match for a valid registered player
                     $scope.onChange();
                     console.log($element);
-                    return $element.replaceWith( '<span class="no-video">' + url +'</span>' );
+                    return $element.replaceWith( '<a href="'+ url +'" class="no-video">' + url +'</a>' );
                 }
 
                 var parameters = url.match(player.playerRegExp);
