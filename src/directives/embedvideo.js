@@ -40,7 +40,6 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 if (player === null) {
                     //haven't found a match for a valid registered player
                     $scope.onChange();
-                    console.log($element);
                     return $element.replaceWith( '<a href="'+ url +'" class="no-video">' + url +'</a>' );
                 }
 
