@@ -26,5 +26,6 @@
     "url": "git://github.com/erost/ng-videosharing-embed.git"
   },
   "author": "erost",
-  "license": "MIT"
+  "license": "MIT",
+  "main":"index.js"
 }
