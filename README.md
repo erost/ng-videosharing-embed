@@ -20,6 +20,7 @@ http://erost.net/ng-videosharing-embed/
 ### Install
 
 * `$ bower install ng-videosharing-embed`
+* `$ npm install ng-videosharing-embed`
 
 Once installed, add videosharing-embed as a dependency in your module:
 
