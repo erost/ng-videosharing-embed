@@ -14,7 +14,7 @@ angular.module('videosharing-embed').service('PlayerConfig', function () {
             this.transformAttrMap = init.transformAttrMap;
             this.processSettings = init.processSettings;
             this.isPlayerFromURL = function (url) {
-                return (url.match(this.playerRegExp) != null);
+                return (url && url.match(this.playerRegExp) != null);
             },
             this.buildSrcURL = init.buildSrcURL,
             this.isAdditionaResRequired = init.isAdditionaResRequired;
@@ -49,7 +49,7 @@ angular.module('videosharing-embed').factory('RegisteredPlayers', [ 'PlayerConfi
                 return protocol + this.playerID + videoID + $filter('videoSettings')(this.processSettings(this.settings));
             },
             playerID: 'www.youtube.com/embed/',
-            playerRegExp: /([a-z\:\/]*\/\/)(?:www\.)?(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+            playerRegExp: /([a-z\:\/]*\/\/)(?:www\.)?(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]+)/,
             timeRegExp: /t=(([0-9]+)h)?(([0-9]{1,2})m)?(([0-9]+)s?)?/,
             isAdditionaResRequired: function() {
                 return false;

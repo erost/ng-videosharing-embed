@@ -5,3 +5,4 @@ test/*.log
 test-results.xml
 temp
 .c9
+.idea/

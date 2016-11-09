@@ -25,7 +25,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 
             //handle the use of both ng-href and href
             $attrs.$observe('href', function(url) {
-                if (url === undefined || url === currentHref) {
+                if (!url || url === currentHref) {
                     return;
                 }
                 currentHref = url;
@@ -40,7 +40,10 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                 if (player === null) {
                     //haven't found a match for a valid registered player
                     $scope.onChange();
-                    return;
+                    //return $element.replaceWith( '<a target="_blank" href="'+ url +'" class="no-video">' + url +'</a>' );
+                    $element.html('<a class="no-video" target="_blank" href="'+ url +'"></a>');
+                    $element.find('a').text(url.split("//")[1]);
+                    return $element;
                 }
 
                 var parameters = url.match(player.playerRegExp);
