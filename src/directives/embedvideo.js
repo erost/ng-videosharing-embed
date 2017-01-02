@@ -10,7 +10,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
         },
         link: function ($scope, $element, $attrs) {
             var currentHref = undefined;
-            var protocol = angular.isString($attrs.useProtocol) ? ($attrs.useProtocol + '://') : undefined;
+            var protocol = angular.isString($attrs.forceProtocol) ? ($attrs.forceProtocol + '://') : undefined;
 
             $attrs.$observe('width', function(w) {
                 $scope.width = w;
