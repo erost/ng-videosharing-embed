@@ -59,6 +59,11 @@ Example
 <embed-video data-ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" controls=0><a href="http://www.youtube.com/watch?v=LOKyEt36Kjc">Watch</a></embed-video>
 ```
 
+Example protocol override (without ':')
+```html
+<embed-video data-ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" use-protocol="https" controls=0><a href="http://www.youtube.com/watch?v=LOKyEt36Kjc">Watch</a></embed-video>
+```
+
 Callback example
 ```html
 <embed-video data-ng-href="{{videoUrl}}" on-change="videoSelected(videoId, provider)" controls=0><a href="http://www.youtube.com/watch?v=LOKyEt36Kjc">Watch</a></embed-video>
