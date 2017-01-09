@@ -133,4 +133,20 @@ describe('embedVideo', function() {
 			});
 		}))
 	})
+
+	describe('embed with protocol override', function() {
+		it('should embed video with https protocol', inject(function () {
+			inject(function ($compile) {
+				var rootElement;
+				rootElement = $compile('<embed-video ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" force-protocol="https" controls=0 >Watch</embed-video>')(scope);
+				scope.$apply();
+				var element = rootElement[0].firstChild;
+				expect(element).toBeDefined();
+				expect(element.nodeName.toLowerCase()).toEqual('iframe');
+				var elementData = getURLandOptions(element.getAttribute('src'));
+				console.log(elementData.url);
+				expect(elementData.url).toEqual('https://www.youtube.com/embed/LOKyEt36Kjc');
+			});
+		}))
+	})
 })

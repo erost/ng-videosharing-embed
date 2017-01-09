@@ -51,12 +51,17 @@ Example
 
 Generic
 ```html
-<embed-video href="<videoUrl>" width=xxx height=xxx [options]></embed-video>
+<embed-video href="<videoUrl>" width=xxx height=xxx [force-protocol="ANY"] [options]></embed-video>
 ```
 
 Example
 ```html
 <embed-video data-ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" controls=0><a href="http://www.youtube.com/watch?v=LOKyEt36Kjc">Watch</a></embed-video>
+```
+
+Example protocol override (note without ':')
+```html
+<embed-video data-ng-href="http://www.youtube.com/watch?v=LOKyEt36Kjc" force-protocol="https" controls=0><a href="http://www.youtube.com/watch?v=LOKyEt36Kjc">Watch</a></embed-video>
 ```
 
 Callback example

@@ -2,7 +2,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 	'use strict';
     return {
         restrict: "E",
-        template: '<iframe data-ng-attr-id="{{id}} "width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" allowfullscreen frameborder="0"></iframe>',
+        template: '<iframe data-ng-attr-id="{{id}}" width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" allowfullscreen frameborder="0"></iframe>',
         scope: {
             height: '@',
             width: '@',
@@ -10,6 +10,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
         },
         link: function ($scope, $element, $attrs) {
             var currentHref = undefined;
+            var protocol = angular.isString($attrs.forceProtocol) ? ($attrs.forceProtocol + '://') : undefined;
 
             $attrs.$observe('width', function(w) {
                 $scope.width = w;
@@ -45,8 +46,9 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 
                 var parameters = url.match(player.playerRegExp);
 
+                protocol = protocol || parameters[1];
+
                 var videoID = parameters[2],
-                    protocol = parameters[1],
                     time = url.match(player.timeRegExp),
                     config = player.config;
 
