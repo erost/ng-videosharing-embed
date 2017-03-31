@@ -4,7 +4,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
         restrict: "E",
         template: '<iframe width="{{width}}" height="{{height}}" data-ng-src="{{trustedVideoSrc}}" frameborder="0"></iframe>',
         scope: {
-            allowfullscreen: '<?',
+            allowfullscreen: '@',
             height: '@',
             width: '@',
             onChange: '&',
@@ -15,7 +15,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
             var protocol = angular.isString($attrs.forceProtocol) ? ($attrs.forceProtocol + '://') : undefined;
 
             // Fullscreen defaults to `true`.
-            $scope.allowfullscreen = ($scope.allowfullscreen === undefined) ? true : $scope.allowfullscreen;
+            $scope.allowfullscreen = ($scope.allowfullscreen === undefined || $scope.allowfullscreen === 'true');
             if ($scope.allowfullscreen) {
                 $iframeEl.attr('allowfullscreen', '');
             }
